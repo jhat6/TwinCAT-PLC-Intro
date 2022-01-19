@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <POU Name="Func_example" Id="{20b0ab15-9e17-449f-8193-f66a1969e117}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Func_example
+VAR
+	iMyInt : INT;
+	uMyInt : INT;
+	TmpC : LREAL;
+	TmpF : LREAL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[iMyInt := UINT_TO_INT(uMyInt);
+
+TmpF := F_CtoF(TmpC);
+]]></ST>
+    </Implementation>
+    <LineIds Name="Func_example">
+      <LineId Id="5" Count="0" />
+      <LineId Id="10" Count="0" />
+      <LineId Id="9" Count="0" />
+      <LineId Id="13" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

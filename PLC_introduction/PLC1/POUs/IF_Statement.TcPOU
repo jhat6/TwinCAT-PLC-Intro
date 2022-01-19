@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <POU Name="IF_Statement" Id="{17189fd5-17ba-4e23-9592-7ccf938b4e8b}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM IF_Statement
+
+VAR
+	//Inputs
+	iNumber : INT;
+	bSwitch1 : BOOL;
+	bSwitch2 : BOOL;
+	bSwitch3 : BOOL;
+	bSwitch4 : BOOL;
+	//Outputs
+	bLight1 : BOOL;
+	bLight2 : BOOL;
+	bLight3 : BOOL;
+	bLight4 : BOOL;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[// IF statement example
+bLight1 := bLight2 := bLight3 := bLight4 := FALSE; 
+
+IF iNumber >= 0 AND iNumber <= 8000 THEN
+	bLight1 := TRUE;	
+ELSIF iNumber > 8000 AND iNumber <= 16000 THEN
+	bLight2 := TRUE;	
+ELSIF iNumber > 16000 AND iNumber <= 24000 THEN
+	bLight3 := TRUE;	
+ELSE 
+	bLight4 := TRUE;		
+END_IF
+]]></ST>
+    </Implementation>
+    <LineIds Name="IF_Statement">
+      <LineId Id="62" Count="0" />
+      <LineId Id="64" Count="0" />
+      <LineId Id="84" Count="0" />
+      <LineId Id="65" Count="8" />
+      <LineId Id="20" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

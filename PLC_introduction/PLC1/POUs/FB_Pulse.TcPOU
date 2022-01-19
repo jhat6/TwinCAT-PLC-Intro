@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <POU Name="FB_Pulse" Id="{c3d102ed-a867-4056-8c17-54ee32287f51}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Pulse
+VAR_INPUT
+	bEnable : BOOL;
+	tTimeOn : TIME;
+	tTimeOff : TIME;
+END_VAR
+VAR_OUTPUT
+	bPulse : BOOL;
+END_VAR
+VAR
+	tmr1 : TON;
+	tmr2 : TOF;
+	IN: INT;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[tmr1(IN:= bEnable AND NOT tmr2.Q, PT:= tTimeOff, Q=> , ET=> );
+tmr2(IN:= tmr1.Q, PT:= tTimeOn, Q=> bPulse, ET=> );]]></ST>
+    </Implementation>
+    <LineIds Name="FB_Pulse">
+      <LineId Id="16" Count="0" />
+      <LineId Id="19" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

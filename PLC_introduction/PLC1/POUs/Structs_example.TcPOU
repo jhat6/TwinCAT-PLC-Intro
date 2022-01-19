@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <POU Name="Structs_example" Id="{02a6bbbf-814a-48a9-a179-c782dd1c42a7}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Structs_example
+VAR
+	stTank1 : ST_Tanks;
+	stTank2 : ST_Tanks;	
+	xSetTemps : BOOL;
+	stTank3 : ST_AdvancedTanks;  // Structure that extends ST_Tanks structure.  Inherits fields from ST_Tanks	
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF xSetTemps = TRUE THEN
+	stTank1.rTemp := 100.0;
+	stTank2.rTemp := 50.0;
+END_IF]]></ST>
+    </Implementation>
+    <LineIds Name="Structs_example">
+      <LineId Id="5" Count="0" />
+      <LineId Id="11" Count="0" />
+      <LineId Id="13" Count="0" />
+      <LineId Id="12" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

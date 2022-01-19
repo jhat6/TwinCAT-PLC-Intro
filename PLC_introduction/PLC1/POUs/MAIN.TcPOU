@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <POU Name="MAIN" Id="{db85d407-738a-4ad1-9821-e1ae6155d930}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	//Inputs
+	iNumber : INT;
+	bSwitch1 : BOOL;
+	bSwitch2 : BOOL;
+	bSwitch3 : BOOL;
+	bSwitch4 : BOOL;
+	//Outputs
+	bLight1 : BOOL;
+	bLight2 : BOOL;
+	bLight3 : BOOL;
+	bLight4 : BOOL;
+	aLights : ARRAY[1..4] OF BOOL;
+	i : INT;
+	aCounter : ARRAY[1..10] OF INT:= [1,2,3,4,5,6,7,8,9,10];
+	iCounterDisp : INT;
+	index : INT := 0;
+	iStep: INT;	
+END_VAR
+
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[FOR i := 1 TO 4 DO
+	aLights[i] := FALSE;
+END_FOR
+
+// ARRAY Example
+CASE iNumber OF
+	0..8000:
+		aLights[1] := TRUE;
+	8001..16000:
+		aLights[2] := TRUE;
+	16001..24000:
+		aLights[3] := TRUE;
+	ELSE
+		aLights[4] := TRUE;
+END_CASE
+
+Structs_example();
+
+(*
+// CASE Example
+bLight1 := bLight2 := bLight3 := bLight4 := FALSE;
+CASE iNumber OF
+	0..8000:
+		bLight1 := TRUE;
+	8001..16000:
+		bLight2 := TRUE;
+	16001..24000:
+		bLight3 := TRUE;
+	ELSE
+		bLight4 := TRUE;
+END_CASE
+*)
+
+
+
+(*
+index := index + 1;
+iCounterDisp := aCounter[index];
+
+IF index > 10 THEN
+	index := 0;
+END_IF
+
+IF_Statement();
+*)]]></ST>
+    </Implementation>
+    <LineIds Name="MAIN">
+      <LineId Id="155" Count="32" />
+      <LineId Id="200" Count="10" />
+      <LineId Id="74" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <POU Name="Func_block_example" Id="{f2f70ce4-cadd-4305-b209-15899cc09469}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Func_block_example
+VAR
+	myCounter : CTU;
+	bCountUp: BOOL;
+	bReset: BOOL;
+	bCountDone: BOOL;
+	myPulse : FB_Pulse;
+	myPulse2 : FB_Pulse;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[myCounter(
+	CU:= bCountUp,
+	RESET := bReset,
+	PV:= 5, 
+	Q=>bCountDone , 
+	CV=> );
+	
+	
+myPulse(bEnable:= , tTimeOn:= T#1S, tTimeOff:= T#500MS, bPulse=> );
+
+myPulse2();]]></ST>
+    </Implementation>
+    <LineIds Name="Func_block_example">
+      <LineId Id="7" Count="1" />
+      <LineId Id="12" Count="0" />
+      <LineId Id="9" Count="0" />
+      <LineId Id="11" Count="0" />
+      <LineId Id="5" Count="0" />
+      <LineId Id="25" Count="2" />
+      <LineId Id="30" Count="0" />
+      <LineId Id="29" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

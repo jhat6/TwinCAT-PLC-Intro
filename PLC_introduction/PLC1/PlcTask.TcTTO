@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <Task Name="PlcTask" Id="{d1052a75-034a-470f-b255-e4dcf7e4bfe2}">
+    <!--CycleTime in micro seconds.-->
+    <CycleTime>10000</CycleTime>
+    <Priority>20</Priority>
+    <PouCall>
+      <Name>MAIN</Name>
+    </PouCall>
+    <PouCall>
+      <Name>Func_example</Name>
+    </PouCall>
+    <PouCall>
+      <Name>Structs_example</Name>
+    </PouCall>
+    <PouCall>
+      <Name>Func_block_example</Name>
+    </PouCall>
+    <PouCall>
+      <Name>IF_Statement</Name>
+    </PouCall>
+    <TaskFBGuid>{08a02402-3253-40ad-be4e-4f2250edbc48}</TaskFBGuid>
+    <Fb_init>{84ac57e7-13df-4d43-8ef1-09866c4bd758}</Fb_init>
+    <Fb_exit>{a5d2247c-72c7-4458-a204-325ed6178244}</Fb_exit>
+    <CycleUpdate>{eb5f1c1f-d8ae-4dad-bcb4-fe4567c7af90}</CycleUpdate>
+    <PostCycleUpdate>{194290eb-8cb1-4690-a89d-3f057c41562a}</PostCycleUpdate>
+  </Task>
+</TcPlcObject>
